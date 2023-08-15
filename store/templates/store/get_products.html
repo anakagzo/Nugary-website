@@ -1,0 +1,92 @@
+{% extends 'store/index.html' %}
+
+<head>
+    {% block title %}
+    <title>products</title>
+    {% endblock %}
+</head>
+
+<body>
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+
+      {% block nav %}
+        <nav id="navbar" class="navbar">
+         
+          <ul>
+            <li><a href="{% url 'login' %}">Account</a></li>
+            <li><a href="{% url 'tips' %}">Health tips</a></li>
+            <li><a class="active" href="{% url 'contact' %}">Contact Us</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+        {% endblock %}
+
+    </div>
+  </header><!-- End Header -->
+
+  {% block hero %}
+  {% endblock %}
+
+  {% block main %}
+  <main id="main">
+
+    <!-- ======= Contact Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Contact</h2>
+          <ol>
+            <li> Home</li>
+            <li>Contact</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+   <!-- ======= product ======= -->
+   <section class="product" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+      <div class="container">
+
+        <div class="row">
+          {% if msg %}
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" >
+            <div class="icon-box ">
+              <div class="icon">
+                <img src="http://anakagzo.pythonanywhere.com{{product.img}}" class="img-fluid" alt="">
+              </div>
+              
+              <h4 class="title"><a href=""></a></h4>
+              <h5 class="sub-title" style="color: darkturquoise;">Sorry.We could not find what you are looking for.</h5>
+              <p class="text"><span>you can use another keyword to find the product.</span></p>
+              <p class="description"></p>
+            </div>
+          </div>
+          {% else %}
+          {% for product in products %}
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="fade-up" >
+            <div class="icon-box ">
+              <div class="icon">
+                <img src="http://anakagzo.pythonanywhere.com{{product.img}}" class="img-fluid" alt="product image">
+              </div>
+              
+              <h4 class="title"><a href="">{{ product.name }}</a></h4>
+              <h5 class="sub-title">{{ product.brand }}</h5>
+              <p class="text">N {{ product.price }}<span>/{{ product.unit_code }}</span></p>
+              <p class="description">{{ product.comment }}</p>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+
+      </div>
+    </section><!-- End product Section -->
+  </main><!-- End #main -->
+  <br>
+  {% endblock %}    
+
+</body>
