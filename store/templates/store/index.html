@@ -13,7 +13,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../../static/img/favicon.png" rel="icon">
+  <link href="https://media.istockphoto.com/vectors/green-letter-n-icon-symbol-template-alphabet-icon-design-vector-id1138787740?k=6&m=1138787740&s=612x612&w=0&h=0NqouSd8SWBKl7aMLZHTSFcAcy3clR--WSDX2yWTVwk=" rel="icon">
   <link href="../../static/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -31,13 +31,6 @@
   <!-- Template Main CSS File -->
   <link href="../../static/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Moderna
-  * Updated: May 30 2023 with Bootstrap v5.3.0
-  * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -48,8 +41,7 @@
 
       <div class="logo">
         <h1 class="text-light"><a href="{% url 'home' %}"><span>Nugary</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        
       </div>
 
       {% block nav %}
@@ -65,7 +57,7 @@
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
           </li>
-          <li><a href="{% url 'login' %}">Admin</a></li>
+          <li><a href="http://anakagzo.pythonanywhere.com">Admin</a></li>
           <li><a href="{% url 'tips' %}">Health tips</a></li>
           <li><a href="{% url 'contact' %}">Contact Us</a></li>
         </ul>
@@ -118,16 +110,7 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-   <!--- <div id="heroCarousel" class="container carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">->
-
-       Slide 1 
-      <div class="carousel-item active">
-        <div class="carousel-container">
-          <h2 class="animate__animated animate__fadeInDown">Your wellbeing is<span> our business</span></h2>
-          <p class="animate__animated animate__fadeInUp">We offer the products you need</p>
-        </div>
-      </div>  
-    </div>-->
+  
   </section><!-- End Hero -->
   {% endblock %}
 
@@ -176,10 +159,6 @@
           <div class=" col-md-3">
               <a href="{% url 'get_product' %}?cat={{category.name}}"><i class="bi bi-check"></i>{{category.name}}</a>
           </div>
-          
-          
-          
-          
           {% endfor %}
         </div>
 
@@ -196,85 +175,40 @@
         </div>
         
         <div class="testimonials-carousel swiper">
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper" >
+            {% for healthtip in healthtips %}
             <div class="testimonial-item swiper-slide">
               <div class="row">
                 <div class="col-lg-6 video-box">
-                  <img src="https://www.vcuhealth.org/-/media/media/featurednewsimages/black-man-drinking-water_resized.ashx" class="img-fluid" alt="">
+                  <img src="http://anakagzo.pythonanywhere.com{{healthtip.img}}" class="img-fluid" alt="health tip image">
                 </div>
       
                 <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
                   <div class="icon-box">
                     
-                    <h4 class="title"><a href="">Drink water</a></h4>
-                    <p class="description">
-                      
-                      water is very essential to your health. our bodies is made
-                      of 90% water. drinking clean water regularly helps our system. Drink water early 
-                      in the morning, drink water when you feel dehydrated and dont forget to drink enough.
-                      
-                    
+                    <h4 class="title"><a href="{% url 'tips_details' %}?title={{healthtip.title}}">{{healthtip.title}}</a></h4>
+                    <p  class="description" >
+                      {{healthtip.content}}
                     </p>
-                    </div>
-                  </div>
-                </div>
-              
-            </div>
-
-            <div class="testimonial-item swiper-slide">
-              <div class="row">
-                <div class="col-lg-6 video-box">
-                  <img src="http://3.bp.blogspot.com/--Z2fZI3loxA/Tj0KmBy3bvI/AAAAAAAAAA0/B8v3Ec-rx0c/s320/taking+walks.jpg" class="img-fluid" alt="">
-                </div>
-      
-                <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
-                  <div class="icon-box">
-                    
-                    <h4 class="title"><a href="">Walking is good for your muscles and spine</a></h4>
-                    <p class="description">
-                      Taking a walk stretches your muscles and prevents your joints from stiffening.
-                      Walking exercises your spine and prevents stress as a result of aging.
-                      Always take a walk, dont sit for too long. it prevents arthritis, weakness, 
-                      muscle fatigue, it helps your health and other organs and it keeps you fit and fresh. 
-                    
-                    </p>
-                    </div>
-                  </div>
-                </div>
-              
-            </div>
-
-          <div class="testimonial-item swiper-slide">
-            <div class="row">
-              <div class="col-lg-6 video-box">
-                <img src="https://www.vcuhealth.org/-/media/media/featurednewsimages/black-man-drinking-water_resized.ashx" class="img-fluid" alt="">
-              </div>
-    
-              <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
-                <div class="icon-box">
-                  
-                  <h4 class="title"><a href="">Drink water</a></h4>
-                  <p class="description">
-                    
-                    water is very essential to your health. our bodies is made
-                    of 90% water. drinking clean water regularly helps our system. Drink water early 
-                    in the morning, drink water when you feel dehydrated and dont forget to drink enough.
-                    
-                  
-                  </p>
                   </div>
                 </div>
               </div>
+              
+            </div>
+            {% endfor %}
+
+            <!---------http://3.bp.blogspot.com/--Z2fZI3loxA/Tj0KmBy3bvI/AAAAAAAAAA0/B8v3Ec-rx0c/s320/taking+walks.jpg-->
+            <!----https://www.vcuhealth.org/-/media/media/featurednewsimages/black-man-drinking-water_resized.ashx---->
+          
             
           </div>
 
             
 
            
-          </div>
-          <div class="swiper-pagination"></div>
         </div>
-
+          <div class="swiper-pagination"></div>
+    
       </div>
 
       <div class="more-tips">
@@ -309,7 +243,7 @@
             <h4>Free Services</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">BP Check</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#"></a>Nutritional tips</li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#"></a>Health tips</li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Health counselling</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#"></a>Discounts</li>
             </ul>
@@ -351,10 +285,6 @@
         &copy; Copyright <strong><span>Moderna</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
@@ -375,7 +305,7 @@
 
   <!-- Template Main JS File -->
   <script src="../../static/js/main.js"></script>
-
+  <script src="../../static/js/main2.js"></script>
 </body>
 
 </html>
