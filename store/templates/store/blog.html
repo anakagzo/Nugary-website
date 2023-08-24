@@ -59,7 +59,7 @@
 
         <div class="row">
 
-          <div class="col-lg-8 entries">
+          <div class="col-md-8 col-lg-8 entries">
 
             {% for healthtip in healthtips %}
             <article class="entry">
@@ -89,7 +89,7 @@
            
           </div><!-- End blog entries list -->
 
-          <div class="col-lg-4">
+          <div class="col-md-4 col-lg-4 ">
 
             <div class="sidebar">
 
@@ -97,15 +97,12 @@
               <div class="sidebar-item categories">
                 <ul>
                   {% for category in categories %}
-                   <li><a href="{% url 'tips' %}?cat={{category.name}}">{{category.name}}<span></span></a></li>
+                   <li><a class="tags" href="{% url 'tips' %}?cat={{category.name}}">{{category.name}}</a></li>
                   {% endfor %}
                 </ul>
               </div><!-- End sidebar categories-->
-
-              
-
-          </div><!-- End blog sidebar -->
-
+            </div><!-- End blog sidebar -->
+          </div>  
         </div>
 
       </div>

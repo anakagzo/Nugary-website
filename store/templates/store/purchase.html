@@ -1,0 +1,110 @@
+{% extends 'store/index.html' %}
+
+<head>
+  
+  {% block title %}
+  <title>Purchase</title>
+  {% endblock %}
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+
+      {% block nav %}
+        <nav id="navbar" class="navbar">
+         
+          <ul>
+            <li><a href="{% url 'tips' %}">Health tips</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+      {% endblock %}
+
+    </div>
+  </header><!-- End Header -->
+
+  {% block hero %}
+  {% endblock %}
+
+  {% block main %}
+  <main id="main">
+
+  
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Contact</h2>
+          <ol>
+            <li> Home</li>
+            <li>Contact</li>
+          </ol>
+        </div>
+
+      </div>
+    </section>  
+    
+
+    <!-- ======= Purchase Section ======= -->
+    <section class="account" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-12">
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="info-box">
+                  <i class="bi bi-cart-check"></i>
+                  <h3>Accounts</h3>
+                  <hr>
+                  <p>Name:<strong> Nugary Pharmaceuticals ltd</strong><br>
+                    Number:<strong> 3096119748</strong><br>
+                    Bank: <strong> First Bank</strong></p>
+                    <br>
+                    <br>
+                  <p>Name:<strong> Nugary Pharmaceuticals ltd</strong><br>
+                    Number: <strong>3086119748</strong><br>
+                    Bank: <strong>UBA</strong></p>
+                  </p> 
+
+                  <br>
+                  <h6>*Delivery fee is as follows:<br>
+                     within Warri = N 1000 - N 1,500<br>
+                    Effurun = N 2000 <br>
+                    Udu = N 2000 <br>
+                    for other areas please contact us before payment.
+                  </strong>
+                   </h6>
+                  <hr>
+                  <p>
+                    Please call us on +234 7085840839 or +234 90765843251 after payment to receive your order.
+                  </p> 
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          
+
+        </div>
+
+      </div>
+    </section><!-- End Purchase Section -->
+
+
+  </main><!-- End #main -->
+  {% endblock %}
+
+  
+
+</body>
+
+</html>

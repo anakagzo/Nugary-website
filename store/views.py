@@ -5,6 +5,11 @@ import requests
 # Create your views here.
 
 
+def home2(request):
+
+    return render(request, 'store/index.html')
+
+
 def home(request):
     # get the products, product categories and health tips
     # display on the home screen
@@ -157,15 +162,12 @@ def tips_details(request):
                         {'msg': 'healthtip does not exist'}) 
     else:
         return redirect('home')
-    
 
-def send_email(request):
-    # send a gmail
 
-    if request.method == 'POST':
-        name = request.POST['name']
-        sender_email = request.POST['email']
-        subject = request.POST['subject']
-        msg = request.POST['message']
+def purchase(request):
+    # display the account details for purchase
+
+    return render(request, 'store/purchase.html')
+
 
     

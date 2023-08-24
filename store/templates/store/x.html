@@ -38,36 +38,36 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container d-flex justify-content-between align-items-center">
-
+      
       <div class="logo">
         <h1 class="text-light"><a href="{% url 'home' %}"><span>Nugary</span></a></h1>
-
+        
+      
       </div>
       <form class="d-flex" role="search"  action="{% url 'get_product' %}" method="post" style="margin-left: 10%; width:40%">
-          {% csrf_token %}
-
-          <input class="form-control me-2" name="product" type="search" placeholder="Search" aria-label="Search" required>
-
-          <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        {% csrf_token %}
+       
+        <input class="form-control me-2" name="product" type="search" placeholder="Search" aria-label="Search" required>
+         
+        <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-      <a class="whatsapp " href="https://wa.me/2349037593050"><i class="bi bi-whatsapp"></i> Chat with Pharm</a>
+        
       {% block nav %}
       <nav id="navbar" class="navbar">
-
+       
         <ul>
           <li>
-
+           
           </li>
           <li><a href="http://anakagzo.pythonanywhere.com">Admin</a></li>
           <li><a href="{% url 'tips' %}">Health tips</a></li>
           <li><a href="{% url 'contact' %}">Contact Us</a></li>
-          <li></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
       {% endblock %}
-
     </div>
+     
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -81,14 +81,16 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="https://images.wisegeek.com/herbs-in-white-bowl-against-green-background.jpg" class="d-block w-100" alt="...">
+          <!---------https://images.wisegeek.com/herbs-in-white-bowl-against-green-background.jpg-->
+          <img src="../../static/img/hero-bg.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-md-block">
             <h2>Your wellbeing is our business</h2>
             <p>visit us at our locations or contact us.</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="https://zimnat.co.zw/wp-content/uploads/2018/08/African-Happy-Family.jpg" class="d-block w-100" alt="...">
+          <!---------https://zimnat.co.zw/wp-content/uploads/2018/08/African-Happy-Family.jpg-->
+          <img src="../../static/img/hero-bg.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-md-block">
             <h2>Your health your vitality</h2>
             <br>
@@ -96,7 +98,8 @@
           </div>
         </div>
         <div class="carousel-item">
-          <img src="https://www.odonpharmacy.com/wp-content/uploads/2016/04/DSC_0022_1-1024x678.jpg" class="d-block w-100" alt="...">
+          <!-----------https://www.odonpharmacy.com/wp-content/uploads/2016/04/DSC_0022_1-1024x678.jpg-->
+          <img src="../../static/img/hero-bg.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-md-block">
             <h2>We offer the products you need.</h2>
             <p>We are glad to serve</p>
@@ -112,36 +115,99 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-
+  
   </section><!-- End Hero -->
   {% endblock %}
 
- 
-
-
   {% block main %}
   <main id="main">
-  
+
     <!-- ======= Services Section ======= -->
     <section class="services">
-       
-        <div class="row gx-10">
-          {% for product in products %}
-          <div class="col-4 col-md-4 col-lg-3 d-flex justify-content-center" data-aos="fade-up" >
+      <div class="container">
+
+        <div class="row row-cols-auto pt-3">
+          
+          <div class="col-sm-4 col-md-3 col-lg-2 d-flex align-items-stretch " data-aos="fade-up" >
             <div class="icon-box ">
               <div class="icon">
-                <img src="http://anakagzo.pythonanywhere.com{{product.img}}" class="img-fluid" alt="product image">
+                <img src="../../static/img/hero-bg.jpg" class="img-fluid" alt="product image">
               </div>
-
-              <h4 class="title"><a href="{% url 'get_product' %}?name={{product.name}}&brand={{product.brand}}">{{ product.name }}</a></h4>
-              <h5 class="sub-title">{{ product.brand }}</h5>
-              <p class="text">N {{ product.price }}<span>/{{ product.unit_code }}</span></p>
+              
+              <h4 class="title"><a href="">paracetamol</a></h4>
+              <h5 class="sub-title">emzor</h5>
+              <p class="text">N 500<span>/pkt</span></p>
+              
             </div>
           </div>
-          {% endfor %}
+          
+          <div class="col-sm-4 col-md-3 col-lg-2 d-flex align-items-stretch" data-aos="fade-up" >
+            <div class="icon-box ">
+              <div class="icon">
+                <img src="../../static/img/hero-bg.jpg" class="img-fluid" alt="product image">
+              </div>
+              
+              <h4 class="title"><a href="">paracetamol</a></h4>
+              <h5 class="sub-title">emzor</h5>
+              <p class="text">N 500<span>/pkt</span></p>
+              
+            </div>
+          </div>
+          
+          <div class="col-sm-4 col-md-3 col-lg-2 d-flex align-items-stretch" data-aos="fade-up" >
+            <div class="icon-box ">
+              <div class="icon">
+                <img src="../../static/img/hero-bg.jpg" class="img-fluid" alt="product image">
+              </div>
+              
+              <h4 class="title"><a href="">paracetamol</a></h4>
+              <h5 class="sub-title">emzor</h5>
+              <p class="text">N 500<span>/pkt</span></p>
+              
+            </div>
+          </div>
+          
+          <div class="col-sm-4 col-md-3 col-lg-2 d-flex align-items-stretch" data-aos="fade-up" >
+            <div class="icon-box ">
+              <div class="icon">
+                <img src="../../static/img/hero-bg.jpg" class="img-fluid" alt="product image">
+              </div>
+              
+              <h4 class="title"><a href="">paracetamol</a></h4>
+              <h5 class="sub-title">emzor</h5>
+              <p class="text">N 500<span>/pkt</span></p>
+              
+            </div>
+          </div>
 
+          <div class="col-sm-4 col-md-3 col-lg-2 d-flex align-items-stretch" data-aos="fade-up" >
+            <div class="icon-box ">
+              <div class="icon">
+                <img src="../../static/img/hero-bg.jpg" class="img-fluid" alt="product image">
+              </div>
+              
+              <h4 class="title"><a href="">paracetamol</a></h4>
+              <h5 class="sub-title">emzor</h5>
+              <p class="text">N 500<span>/pkt</span></p>
+              
+            </div>
+          </div>
 
+          <div class="col-sm-4 col-md-3 col-lg-2 d-flex align-items-stretch" data-aos="fade-up" >
+            <div class="icon-box ">
+              <div class="icon">
+                <img src="../../static/img/hero-bg.jpg" class="img-fluid" alt="product image">
+              </div>
+              
+              <h4 class="title"><a href="">paracetamol</a></h4>
+              <h5 class="sub-title">emzor</h5>
+              <p class="text">N 500<span>/pkt</span></p>
+              
+            </div>
+          </div>
+          
 
+          
 
         </div>
 
@@ -156,19 +222,34 @@
           <h2>Our Categories</h2>
         </div>
 
-        <div class="row " data-aos="fade-up">
-          {% for category in categories %}
-
-          <div class="col-4 col-md-3 col-lg-3 d-flex justify-content-center">
-              <a href="{% url 'get_product' %}?cat={{category.name}}"><i class="bi bi-check"></i>{{category.name}}</a>
+        <div class="row row-cols-auto" data-aos="fade-up">
+       
+          
+          <div class=" col-md-3">
+              <a href="#"><i class="bi bi-check"></i>anti-malaria</a>
           </div>
-          {% endfor %}
+          <div class=" col-md-3">
+            <a href="#"><i class="bi bi-check"></i>anti-malaria</a>
+          </div>
+            <div class=" col-md-3">
+              <a href="#"><i class="bi bi-check"></i>anti-malaria</a>
+          </div>
+          <div class=" col-md-3">
+              <a href="#"><i class="bi bi-check"></i>anti-malaria</a>
+          </div>
+          <div class=" col-md-3">
+              <a href="#"><i class="bi bi-check"></i>anti-malaria</a>
+          </div>
+          <div class=" col-md-3">
+              <a href="#"><i class="bi bi-check"></i>anti-malaria</a>
+          </div>
+          
         </div>
 
       </div>
     </section><!-- End Features Section -->
 
-
+   
     <!-- ======= Tetstimonials Section ======= -->
     <section class="testimonials" data-aos="fade-up">
       <div class="container">
@@ -176,49 +257,67 @@
         <div class="section-title">
           <h2>health tips</h2>
         </div>
-
+        
         <div class="testimonials-carousel swiper">
           <div class="swiper-wrapper" >
-            {% for healthtip in healthtips %}
+            
             <div class="testimonial-item swiper-slide">
               <div class="row">
                 <div class="col-lg-6 video-box">
-                  <img src="http://anakagzo.pythonanywhere.com{{healthtip.img}}" class="img-fluid" alt="health tip image">
+                  <img src="../../static/img/hero-bg.jpg" class="img-fluid" alt="health tip image">
                 </div>
-
+      
                 <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
                   <div class="icon-box">
-
-                    <h4 class="title"><a href="{% url 'tips_details' %}?title={{healthtip.title}}">{{healthtip.title}}</a></h4>
+                    
+                    <h4 class="title"><a href="#">Take a walk</a></h4>
                     <p  class="description" >
-                      {{healthtip.content}}
+                      walking is good for your spine
                     </p>
                   </div>
                 </div>
               </div>
-
+              
             </div>
-            {% endfor %}
 
+            <div class="testimonial-item swiper-slide">
+              <div class="row">
+                <div class="col-lg-6 video-box">
+                  <img src="../../static/img/hero-bg.jpg" class="img-fluid" alt="health tip image">
+                </div>
+      
+                <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
+                  <div class="icon-box">
+                    
+                    <h4 class="title"><a href="#">Take a walk</a></h4>
+                    <p  class="description" >
+                      walking is good for your spine
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
             <!---------http://3.bp.blogspot.com/--Z2fZI3loxA/Tj0KmBy3bvI/AAAAAAAAAA0/B8v3Ec-rx0c/s320/taking+walks.jpg-->
             <!----https://www.vcuhealth.org/-/media/media/featurednewsimages/black-man-drinking-water_resized.ashx---->
-
-
+          
+            
           </div>
 
+            
 
-
-
+           
         </div>
           <div class="swiper-pagination"></div>
-
+    
       </div>
 
       <div class="more-tips">
         <a href="{% url 'tips' %}">More tips</a>
       </div>
     </section><!-- End Testimonials Section -->
-
+   
 
   </main><!-- End #main -->
   <br>
@@ -228,7 +327,7 @@
   {% block footer %}
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
 
-
+  
 
     <div class="footer-top">
       <div class="container">
@@ -295,7 +394,7 @@
   {% endblock %}
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  
+
   <!-- Vendor JS Files -->
   <script src="../../static/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="../../static/vendor/aos/aos.js"></script>

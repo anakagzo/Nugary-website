@@ -1,11 +1,3 @@
-/**
-* Template Name: Moderna
-* Updated: May 30 2023 with Bootstrap v5.3.0
-* Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -68,6 +60,18 @@ h6,
 }
 
 /*--------------------------------------------------------------
+# Whatsapp chat button
+--------------------------------------------------------------*/
+
+.whatsapp {
+ 
+  color: #fff;
+  font-size: 12px;
+  margin-left: 5%;
+  
+}
+
+/*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
 #header {
@@ -108,6 +112,32 @@ h6,
   margin: 0;
   max-height: 40px;
 }
+
+@media(max-width: 400px)  {
+  #header .logo h1{
+    font-size: 18px;
+    margin: 0;
+    padding: 4px 0;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  #header form{
+    height: 24px;
+  }
+
+  #header form .form-control{
+    height: 20px;
+  }
+
+  #header form .btn{
+    height: 20px;
+    font-size: 8px;
+  }
+}
+
 
 #main {
   margin-top: 80px;
@@ -239,7 +269,7 @@ h6,
   transition: 0.5s;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 800px) {
   .mobile-nav-toggle {
     display: block;
   }
@@ -336,10 +366,12 @@ h6,
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   position: relative;
   padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
 }
 
 #hero::after {
@@ -385,6 +417,14 @@ h6,
   left: 0;
   right: 0;
 }
+
+#hero .carousel-item {
+  width: 100%;
+  height: 100%;
+  
+}
+
+
 
 #hero .carousel-caption{
   top:20%;
@@ -458,6 +498,15 @@ h6,
 }
 
 @media (max-width: 768px) {
+  #hero h2 {
+    font-size: 35px;
+    margin-top: 4%;
+  }
+
+  #hero p {
+    font-size: 20px;
+  }
+
   #hero::after {
     width: 180%;
     height: 95%;
@@ -476,7 +525,12 @@ h6,
 
 @media (max-width: 575px) {
   #hero h2 {
-    font-size: 30px;
+    font-size: 25px;
+    margin-top: 8%;
+  }
+
+  #hero p {
+    font-size: 15px;
   }
 
   #hero::after {
@@ -548,6 +602,9 @@ h6,
     font-size: 30px;
   }
 }
+
+
+
 
 /*--------------------------------------------------------------
 # Sections General
@@ -661,28 +718,41 @@ section {
 --------------------------------------------------------------*/
 .services {
   padding-bottom: 20px;
+  padding-top: 5%;
+}
+
+.services .container{
+  display: flex;
+  justify-content: center;
+}
+
+.services .row {
+
+text-align: center;
 }
 
 .services .icon-box {
-  padding: 30px;
+  padding: 5px;
   position: relative;
   overflow: hidden;
-  margin: 0 0 10px 0;
+  margin: 0 0 6px 0;
   background: #fff;
   box-shadow: 0 5px 26px 0 rgba(68, 88, 144, 0.14);
   transition: all 0.3s ease-in-out;
   text-align: center;
   border: 1px solid #fff;
+  width: 100%;
+  
 }
 
 .services .icon {
-  margin: 0 auto 20px auto;
-  padding-top: 17px;
+  margin: 0 0 5px 0;
+  padding-top: 0px;
   display: inline-block;
   text-align: center;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 200px;
 }
 
 .services .icon i {
@@ -691,26 +761,26 @@ section {
 }
 
 .services .img-fluid {
-  width: 100px;
-  height: 100px; 
+  width: 100%;
+  height: 100%; 
 }
 
 .services .title {
-  font-weight: 700px;
-  margin-bottom: 12px;
-  font-size: 18px;
+  font-weight: 400px;
+  margin-bottom: 0px;
+  font-size: 14px;
 }
 
 .services .sub-title {
  
-  margin-bottom: 6px;
-  font-size: 15px;
+  margin-bottom: 0px;
+  font-size: 12px;
 }
 
 .services .text {
   
-  margin-bottom: 15px;
-  font-size: 15px;
+  margin-bottom: 0px;
+  font-size: 12px;
 }
 
 .services .title a {
@@ -723,13 +793,9 @@ section {
   margin-bottom: 0;
 }
 
-
-
 .services .icon-box-green .icon {
   background: #eafde7;
 }
-
-
 
 .services .icon-box-green .icon i {
   color: #41cf2e;
@@ -737,6 +803,123 @@ section {
 
 .services .icon-box-green:hover {
   border-color: #41cf2e;
+}
+
+/*-------------Our Services (mobile phone)----------*/
+
+@media (max-width: 800px) {
+  .services .icon-box{
+    padding: 2px;
+    
+
+  }
+
+  .services .icon {
+    margin: 0 auto 6px auto;
+    padding-top: 17px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    width: 100%;
+    height: 150px;
+  }
+  
+  .services .icon i {
+    font-size: 36px;
+    line-height: 1;
+  }
+  
+  .services .img-fluid {
+    width: 100%;
+    height: 100%; 
+  }
+  
+  .services .title {
+    font-weight: 400px;
+    margin-bottom: 0px;
+    font-size: 14px;
+  }
+  
+  .services .sub-title {
+   
+    margin-bottom: 0px;
+    font-size: 12px;
+  }
+  
+  .services .text {
+    
+    margin-bottom: 0px;
+    font-size: 12px;
+  }
+  .services .title a {
+    color: #111;
+  }
+  
+  .services .description {
+    font-size: 4px;
+    line-height: 0.5px;
+    margin-bottom: 0;
+  }
+  
+
+}
+/*-----------smaller phone size---------*/
+
+@media (max-width: 400px) {
+  .services .icon-box{
+    padding: 2px;
+
+  }
+
+  .services .icon {
+    margin: 0 auto 2px auto;
+    padding-top: 17px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    width: 100%;
+    height: 200px;
+  }
+  
+  .services .icon i {
+    font-size: 36px;
+    line-height: 1;
+  }
+  
+  .services .img-fluid {
+    width: 100%;
+    height: 100%; 
+  }
+  
+  .services .title {
+    font-weight: 200px;
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+  
+  .services .sub-title {
+   
+    margin-bottom: 6px;
+    font-size: 8px;
+  }
+  
+  .services .text {
+    
+    margin-bottom: 15px;
+    font-size: 8px;
+  }
+  
+  .services .title a {
+    color: #111;
+  }
+  
+  .services .description {
+    font-size: 4px;
+    line-height: 0.5px;
+    margin-bottom: 0;
+  }
+  
+
 }
 
 
@@ -1177,29 +1360,37 @@ section {
 --------------------------------------------------------------*/
 .product {
   padding-bottom: 20px;
-  
+  padding-top: 5%;
+}
+
+.product .row {
+
+text-align: center;
+justify-content: center;
+align-self: center;
 }
 
 .product .icon-box {
-  padding: 30px;
+  padding: 5px;
   position: relative;
   overflow: hidden;
-  margin: 0 0 10px 0;
+  margin: 0 0 6px 0;
   background: #fff;
   box-shadow: 0 5px 26px 0 rgba(68, 88, 144, 0.14);
   transition: all 0.3s ease-in-out;
   text-align: center;
   border: 1px solid #fff;
+  
 }
 
 .product .icon {
-  margin: 0 auto 20px auto;
-  padding-top: 17px;
+  margin: 0 0 5px 0;
+  padding-top: 0px;
   display: inline-block;
   text-align: center;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 200px;
 }
 
 .product .icon i {
@@ -1208,26 +1399,26 @@ section {
 }
 
 .product .img-fluid {
-  width: 100px;
-  height: 100px; 
+  width: 100%;
+  height: 100%; 
 }
 
 .product .title {
-  font-weight: 700px;
-  margin-bottom: 12px;
-  font-size: 18px;
+  font-weight: 400px;
+  margin-bottom: 0px;
+  font-size: 14px;
 }
 
 .product .sub-title {
  
-  margin-bottom: 6px;
-  font-size: 15px;
+  margin-bottom: 0px;
+  font-size: 12px;
 }
 
 .product .text {
   
-  margin-bottom: 15px;
-  font-size: 15px;
+  margin-bottom: 0px;
+  font-size: 12px;
 }
 
 .product .title a {
@@ -1237,6 +1428,7 @@ section {
 .product .description {
   font-size: 12px;
   line-height: 1px;
+  padding-top: 5px;
   margin-bottom: 0;
 }
 
@@ -1256,6 +1448,145 @@ section {
   border-color: #41cf2e;
 }
 
+.product .icon-box .buy-now {
+  -moz-text-align-last: center;
+  text-align-last: center;
+}
+
+.product .icon-box .buy-now a {
+  display: inline-block;
+  background: #68A4C4;
+  color: #fff;
+  padding: 6px 20px;
+  transition: 0.3s;
+  font-size: 10px;
+}
+
+.product .icon-box .buy-now a:hover {
+  background: #130482;
+}
+
+
+
+
+/*-------------product (mobile phone)----------*/
+
+@media (max-width: 800px) {
+  .product .icon-box{
+    padding: 2px;
+    width: 100%;
+  }
+
+  .product .icon {
+    margin: 0 auto 6px auto;
+    padding-top: 17px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    width: 100%;
+    height: 150px;
+  }
+  
+  .product .icon i {
+    font-size: 36px;
+    line-height: 1;
+  }
+  
+  .product .img-fluid {
+    width: 100%;
+    height: 100%; 
+  }
+  
+  .product .title {
+    font-weight: 400px;
+    margin-bottom: 0px;
+    font-size: 14px;
+  }
+  
+  .product .sub-title {
+   
+    margin-bottom: 0px;
+    font-size: 12px;
+  }
+  
+  .product .text {
+    
+    margin-bottom: 0px;
+    font-size: 12px;
+  }
+  .product .title a {
+    color: #111;
+  }
+  
+  .product .description {
+    font-size: 4px;
+    line-height: 0.5px;
+    padding-top: 5px;
+    margin-bottom: 0;
+  }
+  
+
+}
+/*-----------smaller phone size---------*/
+
+@media (max-width: 400px) {
+  .product .icon-box{
+    padding: 2px;
+    width: 100%;
+
+  }
+
+  .product .icon {
+    margin: 0 auto 2px auto;
+    padding-top: 17px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    width: 100%;
+    height: 200px;
+  }
+  
+  .product .icon i {
+    font-size: 36px;
+    line-height: 1;
+  }
+  
+  .product .img-fluid {
+    width: 100%;
+    height: 100%; 
+  }
+  
+  .product .title {
+    font-weight: 200px;
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+  
+  .product .sub-title {
+   
+    margin-bottom: 6px;
+    font-size: 8px;
+  }
+  
+  .product .text {
+    
+    margin-bottom: 15px;
+    font-size: 8px;
+  }
+  
+  .product .title a {
+    color: #111;
+  }
+  
+  .product .description {
+    font-size: 4px;
+    line-height: 0.5px;
+    padding-top: 5px;
+    margin-bottom: 0;
+  }
+  
+
+}
 
 
 /*--------------------------------------------------------------
@@ -1823,6 +2154,41 @@ section {
   margin-bottom: 30px;
 }
 
+/*------------mobile-phone----------*/
+@media (max-width: 770px){
+  .blog .col-md-4{
+    display: flex;
+    justify-content: center;
+  }
+
+  .blog .sidebar {
+    padding: 10px;
+    margin: 0 0 60px 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    text-align: center;
+    
+  }
+  
+  .blog .sidebar .sidebar-title {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 0 0 0;
+    margin: 0 0 12px 0;
+    color: #1e4356;
+    position: relative;
+}
+
+.blog .sidebar .sidebar-item {
+  margin-bottom: 10px;
+}
+
+.blog .sidebar .sidebar-item li{
+  font-size: 12px;
+  display: inline;
+}
+}
+
 .blog .sidebar .search-form form {
   background: #fff;
   border: 1px solid #ddd;
@@ -1872,7 +2238,10 @@ section {
 }
 
 .blog .sidebar .categories ul a {
-  color: #1e4356;
+  display: inline-block;
+  background-color: #666;
+  color:#111;
+  border-radius: 15px;
   transition: 0.3s;
 }
 
@@ -1880,11 +2249,6 @@ section {
   color: #68A4C4;
 }
 
-.blog .sidebar .categories ul a span {
-  padding-left: 5px;
-  color: #aaaaaa;
-  font-size: 14px;
-}
 
 .blog .sidebar .recent-posts .post-item+.post-item {
   margin-top: 15px;
@@ -1952,6 +2316,51 @@ section {
   color: #bedae8;
   font-size: 14px;
 }
+
+/*--------------------------------------------------------------
+# Purchase
+--------------------------------------------------------------*/
+.account {
+  padding-bottom: 30px;
+  
+}
+
+.account .info-box {
+  color: #444;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  padding: 20px 0 30px 0;
+  margin-bottom: 30px;
+}
+
+.account .info-box i {
+  font-size: 32px;
+  color: #68A4C4;
+  border-radius: 50%;
+  padding: 8px;
+  border: 2px dotted #a2cce3;
+}
+
+.account .info-box h3 {
+  font-size: 20px;
+  color: #666;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.account .info-box p {
+  padding: 0;
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.account .info-box h6 {
+  font-size: 10px;
+  color: #666;
+  margin: 10px 0;
+}
+
 
 /*--------------------------------------------------------------
 # Footer

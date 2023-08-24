@@ -23,7 +23,7 @@ function () {
 
         for (let i = 0; i < paragraphs.length; i++) {
         const inputText = paragraphs[i].textContent;
-        const limit = 300;
+        const limit = 100;
         const end = ' .....';
         if (inputText.length > limit) {
             paragraphs[i].textContent = inputText.substring(0, limit) + end;
@@ -31,4 +31,20 @@ function () {
             
         }
         
-    });      
+    });  
+    
+ /**
+   * Whatsapp button
+   */
+ let backtotop = select('.whatsapp')
+ if (backtotop) {
+   const toggleBacktotop = () => {
+     if (window.scrollY > 100) {
+       backtotop.classList.add('active')
+     } else {
+       backtotop.classList.remove('active')
+     }
+   }
+   window.addEventListener('load', toggleBacktotop)
+   onscroll(document, toggleBacktotop)
+ }    
