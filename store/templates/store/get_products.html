@@ -69,13 +69,15 @@
           <div class="col-4 col-md-4 col-lg-3 d-flex justify-content-center" data-aos="fade-up" >
             <div class="icon-box ">
               <div class="icon">
-                <img src="http://anakagzo.pythonanywhere.com{{product.img}}" class="img-fluid" alt="product image">
+                <a href="{% url 'product_details' %}?name={{product.name}}&brand={{product.brand}}">
+                  <img src="http://anakagzo.pythonanywhere.com{{product.img}}" class="img-fluid" alt="product image">
+                </a>
               </div>
               
-              <h4 class="title"><a href="">{{ product.name }}</a></h4>
+              <h4 class="title"><a href="{% url 'product_details' %}?name={{product.name}}&brand={{product.brand}}">{{ product.name }}</a></h4>
               <h5 class="sub-title">{{ product.brand }}</h5>
               <p class="text">N {{ product.price }}<span>/{{ product.unit_code }}</span></p>
-              <p class="description">{{ product.comment }}</p>
+              <p class="description"><a href="{% url 'product_details' %}?name={{product.name}}&brand={{product.brand}}">More Details</a></p>
               <hr>
               <div class="buy-now">
                 <a href="{% url 'purchase' %}">Buy now</a>

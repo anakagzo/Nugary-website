@@ -1,0 +1,107 @@
+{% extends 'store/index.html' %}
+
+<head>
+ 
+  {% block title %}
+  <title>Product Details</title>
+  {% endblock %}
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+     
+      {% block nav %}
+      <nav id="navbar" class="navbar">
+       
+        <ul>
+          <li><a href="{% url 'tips' %}">Health tips</a></li>
+          <li><a href="{% url 'contact' %}">Contact Us</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      {% endblock %}
+    </div>
+  </header><!-- End Header -->
+
+  {% block hero %}
+  {% endblock %}
+
+  {% block main %}
+  <main id="main">
+
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Blog</h2>
+
+          <ol>
+            <li>Home</li>
+            <li>Blog</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="product-details" class="product">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-12 entries d-flex justify-content-center">
+
+            <article class="entry entry-single">
+
+              <div class="entry-img">
+                <img src="http://anakagzo.pythonanywhere.com{{product.img}}" alt="product tip image" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="{% url 'product_details' %}?name={{product.name}}&brand={{product.brand}}">{{product.name}}</a>
+              </h2>
+
+
+              <div class="entry-content">
+                <p>
+                    <strong>
+                    {{product.brand}}
+                    </strong>
+                </p>  
+                <p>
+                   N {{product.price}}/{{product.unit_code}}
+                </p>
+                <p>
+                    {{product.comment}}
+                </p>
+                <hr>
+                    <div class="buy-now">
+                        <a href="{% url 'purchase' %}">Buy now</a>
+                    </div>
+              </div>
+
+             
+            </article><!-- End blog entry -->
+ 
+
+          </div><!-- End blog entries list -->
+
+         
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+  {% endblock %}
+
+ 
+</body>
+
+</html>

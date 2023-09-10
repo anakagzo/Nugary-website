@@ -71,21 +71,30 @@ def get_product(request):
             else:
                 return render(request, 'store/get_products.html', 
                             {'msg': 'product does not exist'})
-        elif 'name' in request.GET and 'brand' in request.GET:
-            params = {'token': token,
-                'name': request.GET['name'],
-                'brand': request.GET['brand']}
-            response = requests.get(url, params)
-            if response.status_code == 200:
-                products = response.json()
-                return render(request, 'store/get_products.html', 
-                            {'products': products})
-            else:
-                return render(request, 'store/get_products.html', 
-                            {'msg': 'product does not exist'}) 
         else:
             return redirect('home')
-    
+
+
+def product_details(request):
+    # display a single product with the details
+
+    token = TOKEN
+    url = 'http://anakagzo.pythonanywhere.com/api/products'
+
+    if 'name' in request.GET and 'brand' in request.GET:
+        params = {'token': token, 
+                  'name': request.GET['name'], 
+                  'brand': request.GET['brand']}
+        response = requests.get(url, params)
+        if response.status_code == 200:
+            product = response.json()[0]
+            return render(request, 'store/product-details.html', 
+                        {'product': product})
+        else:
+            return render(request, 'store/get_products.html', 
+                        {'msg': 'product does not exist'}) 
+    else:
+        return redirect('home')    
 
 
 def about(request):
@@ -168,6 +177,11 @@ def purchase(request):
     # display the account details for purchase
 
     return render(request, 'store/purchase.html')
+
+
+
+
+
 
 
     
