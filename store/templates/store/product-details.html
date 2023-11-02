@@ -16,11 +16,13 @@
 
      
       {% block nav %}
+      
       <nav id="navbar" class="navbar">
        
         <ul>
           <li><a href="{% url 'tips' %}">Health tips</a></li>
           <li><a href="{% url 'contact' %}">Contact Us</a></li>
+          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -52,6 +54,14 @@
 
     <!-- ======= Blog Single Section ======= -->
     <section id="product-details" class="product">
+      <div class="cart">
+           <a class="cart-img" href="{% url 'view_cart' %}"><i class="bi bi-cart-check"></i></a>
+           <span class="position-absolute bottom-5 start-50 translate-middle badge rounded-pill bg-danger">
+            {% if count  %}
+              {{ count }}
+            {% endif %}  
+           </span>
+      </div>
       <div class="container" data-aos="fade-up">
 
         <div class="row">
@@ -61,7 +71,7 @@
             <article class="entry entry-single">
 
               <div class="entry-img">
-                <img src="http://anakagzo.pythonanywhere.com{{product.img}}" alt="product tip image" class="img-fluid">
+                <img src="https://admin.nugarypharmacy.com{{product.img}}" alt="product image" class="img-fluid">
               </div>
 
               <h2 class="entry-title">
@@ -70,31 +80,45 @@
 
 
               <div class="entry-content">
-                <p>
+               <!-- <p>
                     <strong>
                     {{product.brand}}
                     </strong>
-                </p>  
-                <p>
-                   N {{product.price}}/{{product.unit_code}}
-                </p>
-                <p>
+               </p> -->
+                <form method="post" action="{% url 'view_cart' %}" style="display: none;">
+                  {% csrf_token %}
+                    <input class="product_name" title="product name" type="text" value="{{product.name}}" name="productName">
+                    <input class="product_img" title="product image" type="text" value="{{product.img}}" name="productImg">
+                    <input class="product_quantity" title="quantity selected" type="text"  name="productQty">
+                    <input class="product_price" title="product unit price" type="text" value="{{product.price}}" name="productPrice">
+                    <input class="submit_btn" type="submit">
+                </form> 
+                {% if 'Supplement' in product.category or 'Toy' in product.category or 'supplement' in product.category or 'toy' in product.category %}
+                  <p> N {{product.price}}/{{product.unit_code}}</p>
+                  <p>
                     {{product.comment}}
-                </p>
-                <hr>
+                  </p>
+                  <hr>
+                  <div class="qty">  
+                    <span ><strong>Quantity: </strong></span> <input class="qtyBox" type="number" name="qty" placeholder="1" />
+                  </div>  
+                    <div class="add-cart">
+                        <a href="#">Add to cart</a>
+                    </div>
+                
+                {% endif %}
+                
                     <div class="buy-now">
-                        <a href="{% url 'purchase' %}">Buy now</a>
+                        <a href="{% url 'purchase' %}?buy_now=1">Buy now</a>
                     </div>
               </div>
-
-             
             </article><!-- End blog entry -->
- 
 
-          </div><!-- End blog entries list -->
-
-         
-
+          </div><!-- End blog entries list --> 
+        </div>
+        <div class="check-out">
+          <a href="{% url 'purchase' %}">Proceed to Checkout</a>
+        </div>  
       </div>
     </section><!-- End Blog Section -->
 

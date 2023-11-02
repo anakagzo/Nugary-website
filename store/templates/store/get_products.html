@@ -16,7 +16,7 @@
          
           <ul>
             <li><a href="{% url 'tips' %}">Health tips</a></li>
-            <li><a class="active" href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a class="" href="{% url 'contact' %}">Contact Us</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -48,6 +48,14 @@
 
    <!-- ======= product ======= -->
    <section class="product" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+      <div class="cart">
+        <a class="cart-img" href="{% url 'view_cart' %}"><i class="bi bi-cart-check"></i></a>
+        <span class="position-absolute bottom-5 start-50 translate-middle badge rounded-pill bg-danger">
+          {% if count  %}
+            {{ count }}
+          {% endif %} 
+        </span>
+      </div>
       <div class="container">
 
         <div class="row gx-10">
@@ -55,10 +63,10 @@
           <div class="col-4 col-md-4 col-lg-3 d-flex justify-content-center" data-aos="fade-up" >
             <div class="icon-box ">
               <div class="icon">
-                <img src="http://anakagzo.pythonanywhere.com{{product.img}}" class="img-fluid" alt="">
+                <img src="https://admin.nugarypharmacy.com{{product.img}}" class="img-fluid" alt="product image">
               </div>
               
-              <h4 class="title"><a href=""></a></h4>
+              <h4 class="title"><a href="#"></a></h4>
               <h5 class="sub-title" style="color: darkturquoise;">Sorry.We could not find what you are looking for.</h5>
               <p class="text"><span>you can use another keyword to find the product.</span></p>
               <p class="description"></p>
@@ -70,23 +78,38 @@
             <div class="icon-box ">
               <div class="icon">
                 <a href="{% url 'product_details' %}?name={{product.name}}&brand={{product.brand}}">
-                  <img src="http://anakagzo.pythonanywhere.com{{product.img}}" class="img-fluid" alt="product image">
+                  <img src="https://admin.nugarypharmacy.com{{product.img}}" class="img-fluid" alt="product image">
                 </a>
               </div>
               
               <h4 class="title"><a href="{% url 'product_details' %}?name={{product.name}}&brand={{product.brand}}">{{ product.name }}</a></h4>
-              <h5 class="sub-title">{{ product.brand }}</h5>
-              <p class="text">N {{ product.price }}<span>/{{ product.unit_code }}</span></p>
+              <!--<h5 class="sub-title">{{ product.brand }}</h5>-->
+              {% if 'Supplement' in product.category or 'Toy' in product.category %}
+                <p class="text">N {{ product.price }}<span>/{{ product.unit_code }}</span></p>
+              {% elif 'supplement' in product.category or 'toy' in product.category %}  
+                <p class="text">N {{ product.price }}<span>/{{ product.unit_code }}</span></p>
+              {% endif %}
               <p class="description"><a href="{% url 'product_details' %}?name={{product.name}}&brand={{product.brand}}">More Details</a></p>
+              <!--
               <hr>
               <div class="buy-now">
                 <a href="{% url 'purchase' %}">Buy now</a>
-              </div>
+              </div>-->
             </div>
             
           </div>
           {% endfor %}
+          {% if category %}
+          <div class="see-more">
+            <br>
+            <a href="{% url 'get_product' %}?cat={{category}}">Click to see more</a>
+          </div>
           {% endif %}
+          {% endif %}
+          
+          <p class="added-info">
+           ! you could use the Search bar for a quick search, type in the name or brand. 
+          </p>
         </div>
 
       </div>

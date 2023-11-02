@@ -1,0 +1,113 @@
+{% extends 'store/index.html' %}
+
+<head>
+    {% block title %}
+    <title>cart</title>
+    {% endblock %}
+</head>
+
+<body>
+    <header id="header" class="fixed-top d-flex align-items-center ">
+        <div class="container d-flex justify-content-between align-items-center">
+    
+          {% block nav %}
+            <nav id="navbar" class="navbar">
+             
+              <ul>
+                <li><a href="{% url 'tips' %}">Health tips</a></li>
+                <li><a class="" href="{% url 'contact' %}">Contact Us</a></li>
+              </ul>
+              <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+            {% endblock %}
+    
+        </div>
+    </header><!-- End Header -->
+
+    {% block hero %}
+    {% endblock %}
+
+    {% block main %}
+    <main id="main">
+
+        <!-- ======= Contact Section ======= -->
+        <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+            <h2>Contact</h2>
+            <ol>
+                <li> Home</li>
+                <li>Contact</li>
+            </ol>
+            </div>
+
+        </div>
+        </section><!-- End Contact Section -->
+
+        <section id="cart">
+        <div class="container margin-0 " >
+            <form method="post" action="{% url 'update_cart' %}" style="display: none;">
+                {% csrf_token %}
+                <input class="productToDelete" type="text" name="product_name" >
+                <input class="submit" type="submit" >
+            </form>
+            {% if cart %}
+                {% for product in cart %}
+                    <div class="cart-details" >
+                        <div class="product-name" >
+                            <img src="https://admin.nugarypharmacy.com{{product.image_url}}" alt="product image">
+                            {{ product.name }}
+                        </div>
+                        <div class="product-qty">
+                            Qty: <strong>{{ product.quantity }}</strong>
+                        </div>
+                        <div class="product-price">{{ product.price }} NGN</div>
+                        
+                        <div class="del-btn"> 
+                            <button title="{{product.name}}" type="button" class="btn btn-danger">delete</button>
+                        </div>
+                        
+                    </div>
+                    <hr>
+
+                {% endfor %}
+                <br>
+                <h6>Quantity: {{ count }} <br>
+                    subtotal: {{ subtotal }} NGN</h6>
+            {% else %}
+                    <div>
+                        <p>Your Cart is Empty!</p>
+                    </div>
+            {% endif %}   
+
+            <div class="check-out">
+                <a href="{% url 'purchase' %}">Proceed to Checkout</a>
+            </div>
+
+        </section> 
+        <section class="features top-0">
+            <div class="container">
+      
+              <div class="section-title bottom-0">
+                <h3>More Products</h3>
+              </div>
+      
+               <div class="product-category" data-aos="fade-up">
+                
+                <div class="tags">
+                  <ul>
+                  {% for category in categories %}
+                    <li><a href="{% url 'get_product' %}?cat={{category.name}}">{{category.name}}</a></li>
+                  {% endfor %}
+                </ul>  
+                </div>
+                
+              </div>
+      
+            </div>
+          </section><!-- End Features Section -->
+    </main>
+    {% endblock %}    
+
+</body>
